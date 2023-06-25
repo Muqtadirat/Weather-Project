@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/d3e0ff209f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather Project</title>
+  </head>
+  <body>
+    <div
+      class="container text-center border border-warning rounded p-3 mt-5 mx-auto"
+    >
+      <div class="row align-items-center px-4 weather-btns">
+        <div class="col">
+          <input
+            class="form-control form-control-lg city-input"
+            type="text"
+            placeholder="Enter a city..."
+            aria-label="Input city name"
+          />
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-lg btn-primary px-5 search">
+            Search
+          </button>
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-lg border btn-primary px-5">
+            <i class="fa-solid fa-location-dot location"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row row-cols-2 mt-5 mb-5 mx-auto weather-display">
+        <div class="col">
+          <div class="row row-cols-1 text-start">
+            <div class="col"><p class="city">Lagos</p></div>
+
+            <div class="col">
+              <div class="row row-cols-2 fs-3">
+                <div class="col"><p class="day">Saturday</p></div>
+                <div class="col"><p class="time">11:11</p></div>
+              </div>
+            </div>
+
+            <div class="col fs-4"><p class="atmosphere">Light rain</p></div>
+          </div>
+        </div>
+
+        <div class="col pt-4 temp">
+          <p class="mt-4 fs-1">
+            <span class="temp">31</span>
+            <sup>
+              <span class="celsius"> °C</span> |<span class="fahrenheit">
+                °F
+              </span></sup
+            >
+            <i class="fa-solid fa-droplet"></i>
+          </p>
+        </div>
+      </div>
+
+      <div class="row row-cols forecast">
+        <div class="row row-cols-6 weekdays">
+          <div class="col">
+            <p>Sun</p>
+            <br /><i class="fa-solid fa-cloud icon"></i><br />
+            <p>21°C</p>
+          </div>
+          <div class="col">
+            <p>Mon</p>
+            <br /><i class="fa-solid fa-cloud-showers-heavy icon"></i><br />
+            <p>21°C</p>
+          </div>
+          <div class="col">
+            <p>Tue</p>
+            <br /><i class="fa-solid fa-sun icon"></i><br />
+            <p>21°C</p>
+          </div>
+          <div class="col">
+            <p>Wed</p>
+            <br /><i class="fa-solid fa-sun icon"></i><br />
+            <p>21°C</p>
+          </div>
+          <div class="col">
+            <p>Thur</p>
+            <br /><i class="fa-solid fa-wind icon"></i><br />
+            <p>21°C</p>
+          </div>
+          <div class="col">
+            <p>Fri</p>
+            <br /><i class="fa-solid fa-cloud-bolt icon"></i><br />
+            <p>21°C</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <!--<script>
+      /*function userName() {
+        let firstName = prompt(`What's your first name?`);
+
+        if (firstName) {
+          alert(`Welcome, ${firstName}`);
+        } else {
+          alert(`Too bad for you`);
+        }
+      }
+
+      userName();*/
+    </script>-->
+  </body>
+</html>

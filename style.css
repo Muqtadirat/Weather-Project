@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: block;
+  background: radial-gradient(
+    circle at -8.9% 51.2%,
+    rgb(255, 124, 0) 0%,
+    rgb(255, 124, 0) 15.9%,
+    rgb(255, 163, 77) 15.9%,
+    rgb(255, 163, 77) 24.4%,
+    rgb(19, 30, 37) 24.5%,
+    rgb(19, 30, 37) 66%
+  );
+  color: #fff;
+}
+
+/* Elements */
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Classes */
+
+.icon {
+  font-size: 40px;
+  padding-bottom: 0.5em;
+}
+
+.city,
+.temp {
+  font-family: "Bree Serif", serif;
+  font-size: 54px;
+}
+
+.celsius, .fahrenheit{
+    font-size: smaller;
+    font-family: "Bree Serif", serif;
+}
