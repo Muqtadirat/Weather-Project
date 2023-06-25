@@ -21,6 +21,9 @@ let weather = {
   },
 };
 
+//Create a function
+//Create a loop to go through the array using the function
+//Read more on loops. Submit in two days max.
 function city() {
   cityName = prompt("Enter a city");
 
