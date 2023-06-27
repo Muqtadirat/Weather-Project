@@ -36,7 +36,8 @@ p {
   font-size: 54px;
 }
 
-.celsius, .fahrenheit{
-    font-size: smaller;
-    font-family: "Bree Serif", serif;
+.celsius,
+.fahrenheit {
+  font-size: smaller;
+  font-family: "Bree Serif", serif;
 }

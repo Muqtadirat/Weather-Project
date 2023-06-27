@@ -21,19 +21,26 @@ let weather = {
   },
 };
 
-//Create a function
-//Create a loop to go through the array using the function
-//Read more on loops. Submit in two days max.
-function city() {
-  cityName = prompt("Enter a city");
+function fahrenheit(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
 
-  if (cityName) {
-    alert(`It is currently 19°C (66°F) in ${cityName} with a humidity of 80%`);
+function forecast() {
+  let city = prompt("Enter a city");
+  city = city.toLowerCase().trim();
+
+  if (weather.hasOwnProperty(city)) {
+    let forecastWeather = weather[city];
+    alert(
+      `It is currently ${Math.round(forecastWeather.temp)}°C (${Math.round(
+        fahrenheit(forecastWeather.temp)
+      )}°F) in ${city} with a humidity of ${forecastWeather.humidity}%`
+    );
   } else {
     alert(
-      `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${cityName}`
+      `Sorry, we don't know the weather for this city. Try going to https://www.google.com/search?q=weather+${city}`
     );
   }
 }
 
-city();
+forecast();
