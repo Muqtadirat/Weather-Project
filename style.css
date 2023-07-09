@@ -40,4 +40,12 @@ p {
 .fahrenheit {
   font-size: smaller;
   font-family: "Bree Serif", serif;
+  border: none;
+  color: #ffa34d;
+}
+
+.celsius:hover,
+.fahrenheit:hover {
+  color: #fff;
+  text-decoration: underline;
 }

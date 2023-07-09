@@ -29,30 +29,37 @@
     <div
       class="container text-center border border-warning rounded p-3 mt-5 mx-auto"
     >
-      <div class="row align-items-center px-4 weather-btns">
-        <div class="col">
-          <input
-            class="form-control form-control-lg city-input"
-            type="text"
-            placeholder="Enter a city..."
-            aria-label="Input city name"
-          />
-        </div>
+      <form id="search-form">
+        <div class="row align-items-center px-4 weather-btns">
+          <div class="col">
+            <input
+              class="form-control form-control-lg"
+              id="city-input"
+              type="text"
+              placeholder="Enter a city..."
+              aria-label="Input city name"
+            />
+          </div>
 
-        <div class="col-2">
-          <button type="button" class="btn btn-lg btn-primary px-5 search">
-            Search
-          </button>
-        </div>
+          <div class="col-2">
+            <button
+              type="submit"
+              class="btn btn-lg btn-primary px-5"
+              id="search"
+            >
+              Search
+            </button>
+          </div>
 
-        <div class="col-2">
-          <button type="button" class="btn btn-lg border btn-primary px-5">
-            <i class="fa-solid fa-location-dot location"></i>
-          </button>
+          <div class="col-2">
+            <button type="button" class="btn btn-lg border btn-primary px-5">
+              <i class="fa-solid fa-location-dot" id="location"></i>
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
 
-      <div class="row row-cols-2 mt-5 mb-5 mx-auto weather-display">
+      <div class="row row-cols-2 mt-5 mb-5 mx-auto" id="weather-display">
         <div class="col">
           <div class="row row-cols-1 text-start">
             <div class="col"><p class="city">Lagos</p></div>
@@ -68,20 +75,23 @@
           </div>
         </div>
 
-        <div class="col pt-4 temp">
+        <div class="col pt-4" id="temperature">
           <p class="mt-4 fs-1">
-            <span class="temp">31</span>
+            <span class="temp" id="temperature-value">31</span>
             <sup>
-              <span class="celsius"> °C</span> |<span class="fahrenheit">
+              <button type="button" class="celsius">°C</button> | <button
+                type="button"
+                class="fahrenheit"
+              >
                 °F
-              </span></sup
+              </button></sup
             >
             <i class="fa-solid fa-droplet"></i>
           </p>
         </div>
       </div>
 
-      <div class="row row-cols forecast">
+      <div class="row row-cols" id="forecast">
         <div class="row row-cols-6 weekdays">
           <div class="col">
             <p>Sun</p>
@@ -117,7 +127,8 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <!--<script src="app.js"></script>-->
+    <script src="index.js"></script>
     <!--<script>
       /*function userName() {
         let firstName = prompt(`What's your first name?`);
