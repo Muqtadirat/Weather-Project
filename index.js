@@ -86,5 +86,5 @@ function fahrenheitToCelsius() {
 }
 
 // Event listeners for the conversion buttons
-celsiusBtn.addEventListener("click", celsiusToFahrenheit);
-fahrenheitBtn.addEventListener("click", fahrenheitToCelsius);
+celsiusBtn.addEventListener("click", fahrenheitToCelsius);
+fahrenheitBtn.addEventListener("click", celsiusToFahrenheit);
