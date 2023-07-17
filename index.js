@@ -42,19 +42,59 @@ currDay();
 currTime();
 
 //FEATURE 2
-//Takes user city from search and displays in HTML class
-function findCity() {
-  event.preventDefault(); //prevents form submission
+// Takes user city from search and displays in HTML class
+function findCity(event) {
+  event.preventDefault(); // Prevents form submission
 
   const cityInput = document.querySelector("#city-input");
   const cityResult = document.querySelector(".city");
 
   // Set the result element's text content to the entered city name
-  cityResult.textContent = cityInput.value;
+  const cityName =
+    cityInput.value.charAt(0).toUpperCase() + cityInput.value.slice(1);
+  cityResult.textContent = cityName;
+
+  // Gets city temperature via API
+  const apiKey = "b40b135798f82a05aed08769f9275f50";
+  const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
+
+  axios.get(weatherApi).then(displayWeatherCondition);
 }
 
-const cityDisplay = document.querySelector("#search-form");
-cityDisplay.addEventListener("submit", findCity);
+// Displays weather conditions in the HTML elements
+function displayWeatherCondition(response) {
+  const cityName = document.querySelector(".city");
+  const temperatureValue = document.querySelector("#temperature-value");
+  const atmosphere = document.querySelector("#atmosphere");
+
+  cityName.innerHTML = response.data.name;
+  temperatureValue.innerHTML = Math.round(response.data.main.temp);
+  atmosphere.innerHTML = response.data.weather[0].main;
+}
+
+// Gets weather conditions for current location
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(gpsLocation);
+}
+
+// Retrieves weather conditions based on geolocation coordinates
+function gpsLocation(position) {
+  const apiKey = "b40b135798f82a05aed08769f9275f50";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+// Event listeners
+const cityForm = document.querySelector("#search-form");
+cityForm.addEventListener("submit", findCity);
+
+const currentLocationButton = document.querySelector("#gps-location");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+// Initialize with weather conditions for current location
+navigator.geolocation.getCurrentPosition(gpsLocation);
 
 //BONUS FEATURE
 //Converts celsius to fahrenheit and vice versa
