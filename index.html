@@ -14,6 +14,7 @@
       src="https://kit.fontawesome.com/d3e0ff209f.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,7 +54,7 @@
 
           <div class="col-2">
             <button type="button" class="btn btn-lg border btn-primary px-5">
-              <i class="fa-solid fa-location-dot" id="location"></i>
+              <i class="fa-solid fa-location-dot" id="gps-location"></i>
             </button>
           </div>
         </div>
@@ -71,7 +72,7 @@
               </div>
             </div>
 
-            <div class="col fs-4"><p class="atmosphere">Light rain</p></div>
+            <div class="col fs-4"><p id="atmosphere">Light rain</p></div>
           </div>
         </div>
 
