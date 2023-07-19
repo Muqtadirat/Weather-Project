@@ -23,6 +23,18 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
+footer {
+  margin: 20px 35rem;
+  padding: 0.5rem 15px;
+  background-color: #131e25;
+  border: 5px ridge #ffa34d;
+  border-radius: 20px;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #ffff;
+}
+
 /* Classes */
 
 .icon {
