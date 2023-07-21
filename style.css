@@ -21,6 +21,11 @@
 #wind,
 #humidity {
   font-family: "Bree Serif", serif;
+  font-size: 22px;
+}
+
+#icon{
+  margin-top: -40px;
 }
 
 /* Elements */
@@ -53,6 +58,10 @@ footer {
   font-size: 54px;
 }
 
+.temp {
+  font-size: 84px;
+}
+
 .country {
   font-family: "Bree Serif", serif;
   font-size: 28px;
@@ -72,6 +81,9 @@ footer {
   text-decoration: underline;
 }
 
+.temp-parameter {
+  font-size: 54px;
+}
 .speed,
 .percent {
   color: #ffa34d;

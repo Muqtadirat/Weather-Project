@@ -70,6 +70,7 @@ function displayWeatherCondition(response) {
   const atmosphere = document.querySelector("#atmosphere");
   const humidity = document.querySelector(".humidity-value");
   const wind = document.querySelector(".wind-speed");
+  const icon = document.querySelector("#icon");
 
   cityName.innerHTML = `${response.data.city},`;
   country.innerHTML = response.data.country;
@@ -79,6 +80,10 @@ function displayWeatherCondition(response) {
     response.data.condition.description.slice(1);
   humidity.innerHTML = response.data.temperature.humidity;
   wind.innerHTML = response.data.wind.speed;
+  icon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 
 // Gets weather conditions for current location
