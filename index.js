@@ -65,12 +65,14 @@ function findCity(event) {
 function displayWeatherCondition(response) {
   console.log(response);
   const cityName = document.querySelector(".city");
+  const country = document.querySelector(".country");
   const temperatureValue = document.querySelector("#temperature-value");
   const atmosphere = document.querySelector("#atmosphere");
   const humidity = document.querySelector(".humidity-value");
   const wind = document.querySelector(".wind-speed");
 
-  cityName.innerHTML = response.data.city;
+  cityName.innerHTML = `${response.data.city},`;
+  country.innerHTML = response.data.country;
   temperatureValue.innerHTML = Math.round(response.data.temperature.current);
   atmosphere.innerHTML =
     response.data.condition.description.charAt(0).toUpperCase() +
