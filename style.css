@@ -17,6 +17,12 @@
   color: #fff;
 }
 
+/* ID */
+#wind,
+#humidity {
+  font-family: "Bree Serif", serif;
+}
+
 /* Elements */
 
 p {
@@ -60,4 +66,9 @@ footer {
 .fahrenheit:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+.speed,
+.percent {
+  color: #ffa34d;
 }

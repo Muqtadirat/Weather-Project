@@ -76,15 +76,32 @@
           </div>
         </div>
 
-        <div class="col pt-4" id="temperature">
-          <p class="mt-4 fs-1">
-            <span class="temp" id="temperature-value">31</span>
-            <sup>
-              <button type="button" class="celsius">°C</button> |
-              <button type="button" class="fahrenheit">°F</button></sup
-            >
-            <i class="fa-solid fa-droplet"></i>
-          </p>
+        <div class="col">
+          <div class="col pt-4" id="temperature">
+            <p class="mt-4 fs-1">
+              <span class="temp" id="temperature-value">31</span>
+              <sup>
+                <button type="button" class="celsius">°C</button> |
+                <button type="button" class="fahrenheit">°F</button></sup
+              >
+              <i class="fa-solid fa-droplet"></i>
+            </p>
+          </div>
+
+          <div class="row row-cols-2 fs-5">
+            <div class="col">
+              <p id="humidity">
+                Humidity: <span class="humidity-value">20</span>
+                <span class="percent">%</span>
+              </p>
+            </div>
+            <div class="col">
+              <p id="wind">
+                Wind: <span class="wind-speed">9.99</span>
+                <span class="speed">km/h</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -131,7 +148,8 @@
       Open-Source
       <a href="https://github.com/Muqtadirat/weather-project" target="_blank"
         >code</a
-      > by Muqtadirat Yussuff
+      >
+      by Muqtadirat Yussuff
     </p>
   </footer>
 </html>
