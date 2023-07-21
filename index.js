@@ -55,21 +55,28 @@ function findCity(event) {
   cityResult.textContent = cityName;
 
   // Gets city temperature via API
-  const apiKey = "b40b135798f82a05aed08769f9275f50";
-  const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
+  const apiKey = "ae5350b6a304ff06o3a36487d5be8a4t";
+  const weatherApi = `https://api.shecodes.io/weather/v1/current?query=${cityInput.value}&key=${apiKey}&units=metric`;
 
   axios.get(weatherApi).then(displayWeatherCondition);
 }
 
 // Displays weather conditions in the HTML elements
 function displayWeatherCondition(response) {
+  console.log(response);
   const cityName = document.querySelector(".city");
   const temperatureValue = document.querySelector("#temperature-value");
   const atmosphere = document.querySelector("#atmosphere");
+  const humidity = document.querySelector(".humidity-value");
+  const wind = document.querySelector(".wind-speed");
 
-  cityName.innerHTML = response.data.name;
-  temperatureValue.innerHTML = Math.round(response.data.main.temp);
-  atmosphere.innerHTML = response.data.weather[0].main;
+  cityName.innerHTML = response.data.city;
+  temperatureValue.innerHTML = Math.round(response.data.temperature.current);
+  atmosphere.innerHTML =
+    response.data.condition.description.charAt(0).toUpperCase() +
+    response.data.condition.description.slice(1);
+  humidity.innerHTML = response.data.temperature.humidity;
+  wind.innerHTML = response.data.wind.speed;
 }
 
 // Gets weather conditions for current location
@@ -80,9 +87,8 @@ function getCurrentLocation(event) {
 
 // Retrieves weather conditions based on geolocation coordinates
 function gpsLocation(position) {
-  const apiKey = "b40b135798f82a05aed08769f9275f50";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+  const apiKey = "ae5350b6a304ff06o3a36487d5be8a4t";
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -96,7 +102,6 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 // Initialize with weather conditions for current location
 navigator.geolocation.getCurrentPosition(gpsLocation);
 
-//BONUS FEATURE
 //Converts celsius to fahrenheit and vice versa
 
 const temperatureValue = document.querySelector("#temperature-value");
