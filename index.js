@@ -1,4 +1,4 @@
-//FEATURE 1
+
 //Get the current date and time
 const now = new Date();
 
@@ -41,7 +41,30 @@ function currTime() {
 currDay();
 currTime();
 
-//FEATURE 2
+//Runs weather forecast code block
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thur`, `Fri`]; //Determines the number of times the HTML code block runs
+
+  let forecastHTML = ` <div class="row row-cols-6 weekdays">`; //Opens the code block via concantenation
+
+  days.forEach(function (day) {
+    //Takes an HTML code block and runs in js
+    forecastHTML =
+      forecastHTML +
+      `  <div class="col">
+            <p class = "forecast-day">${day}</p>
+            <br /><img src="" alt="" id="icon" /><br />
+            <p>21 °C | °F</p>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`; //Closes the code block via concantenation
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 // Takes user city from search and displays in HTML class
 function findCity(event) {
   event.preventDefault(); // Prevents form submission
@@ -140,3 +163,6 @@ function fahrenheitToCelsius() {
 // Event listeners for the conversion buttons
 celsiusBtn.addEventListener("click", fahrenheitToCelsius);
 fahrenheitBtn.addEventListener("click", celsiusToFahrenheit);
+
+//Call functions
+displayForecast();
