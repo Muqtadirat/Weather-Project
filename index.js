@@ -41,7 +41,9 @@ currDay();
 currTime();
 
 //Runs weather forecast code block
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecast");
 
   let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thur`, `Fri`]; //Determines the number of times the HTML code block runs
@@ -54,7 +56,7 @@ function displayForecast() {
       forecastHTML +
       `  <div class="col">
             <p class = "forecast-day">${day}</p>
-            <br /><img src="" alt="" id="icon" /><br />
+            <br /><img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="" id="icon" /><br />
             <p>21 °C | °F</p>
           </div>`;
   });
@@ -66,10 +68,8 @@ function displayForecast() {
 
 //Retrieves forecast coordinates
 function getForecast(coordinates) {
-  console.log(coordinates);
-
   const apiKey = "ae5350b6a304ff06o3a36487d5be8a4t";
-  const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+  const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayForecast);
 }
@@ -95,8 +95,6 @@ function findCity(event) {
 
 // Displays weather conditions in the HTML elements
 function displayWeatherCondition(response) {
-  console.log(response);
-
   const cityName = document.querySelector(".city");
   const country = document.querySelector(".country");
   const temperatureValue = document.querySelector("#temperature-value");
@@ -176,6 +174,3 @@ function fahrenheitToCelsius() {
 // Event listeners for the conversion buttons
 celsiusBtn.addEventListener("click", fahrenheitToCelsius);
 fahrenheitBtn.addEventListener("click", celsiusToFahrenheit);
-
-//Call functions
-displayForecast();
