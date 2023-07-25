@@ -1,4 +1,3 @@
-
 //Get the current date and time
 const now = new Date();
 
@@ -65,6 +64,16 @@ function displayForecast() {
   console.log(forecastHTML);
 }
 
+//Retrieves forecast coordinates
+function getForecast(coordinates) {
+  console.log(coordinates);
+
+  const apiKey = "ae5350b6a304ff06o3a36487d5be8a4t";
+  const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Takes user city from search and displays in HTML class
 function findCity(event) {
   event.preventDefault(); // Prevents form submission
@@ -87,6 +96,7 @@ function findCity(event) {
 // Displays weather conditions in the HTML elements
 function displayWeatherCondition(response) {
   console.log(response);
+
   const cityName = document.querySelector(".city");
   const country = document.querySelector(".country");
   const temperatureValue = document.querySelector("#temperature-value");
@@ -107,6 +117,8 @@ function displayWeatherCondition(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+
+  getForecast(response.data.coordinates);
 }
 
 // Gets weather conditions for current location
@@ -119,6 +131,7 @@ function getCurrentLocation(event) {
 function gpsLocation(position) {
   const apiKey = "ae5350b6a304ff06o3a36487d5be8a4t";
   const apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`;
+
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
