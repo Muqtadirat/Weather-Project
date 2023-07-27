@@ -40,30 +40,46 @@ function currTime() {
 currDay();
 currTime();
 
+function formatDate(timeStamp) {
+  const date = new Date(timeStamp * 1000); //Converts unix timestamp (milliseconds) to seconds
+  const day = date.getDay();
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  return days[day]; //Returns the day of the week as a three-letter abbreviation based on the day value
+}
+
 //Runs weather forecast code block
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  console.log(forecast);
 
   let forecastElement = document.querySelector("#forecast");
 
-  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thur`, `Fri`]; //Determines the number of times the HTML code block runs
-
   let forecastHTML = ` <div class="row row-cols-6 weekdays">`; //Opens the code block via concantenation
 
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay, index) {
     //Takes an HTML code block and runs in js
-    forecastHTML =
-      forecastHTML +
-      `  <div class="col">
-            <p class = "forecast-day">${day}</p>
-            <br /><img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="" id="icon" /><br />
-            <p>21 °C | °F</p>
+    if (
+      index < 6 //Specifies the number of forecasts
+    ) {
+      forecastHTML =
+        forecastHTML +
+        `  <div class="col">
+            <p class = "forecast-day">${formatDate(forecastDay.time)}</p>
+            <br /><img src="${
+              forecastDay.condition.icon_url
+            }" alt="" id="icon" /><br />
+            <p><span class="max-temp">${Math.round(
+              forecastDay.temperature.maximum
+            )}°</span> | <span class="min-temp">${Math.round(
+          forecastDay.temperature.minimum
+        )}°</span></p>
           </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`; //Closes the code block via concantenation
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 //Retrieves forecast coordinates
