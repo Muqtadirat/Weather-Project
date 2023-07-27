@@ -71,7 +71,7 @@ function displayForecast(response) {
             }" alt="" id="icon" /><br />
             <p><span class="max-temp">${Math.round(
               forecastDay.temperature.maximum
-            )}°</span> | <span class="min-temp">${Math.round(
+            )}°</span> <span class = "temp-border">| </span> <span class="min-temp">${Math.round(
           forecastDay.temperature.minimum
         )}°</span></p>
           </div>`;

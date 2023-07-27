@@ -24,7 +24,7 @@
   font-size: 22px;
 }
 
-#icon{
+#icon {
   margin-top: -40px;
 }
 
@@ -87,4 +87,22 @@ footer {
 .speed,
 .percent {
   color: #ffa34d;
+}
+
+/* JS CSS */
+
+.temp-border {
+  color: #0b5ed7;
+}
+
+.max-temp,
+.min-temp {
+  font-family: "Bree Serif", serif;
+  font-size: large;
+}
+
+.max-temp:hover,
+.min-temp:hover {
+  color: #0b5ed7;
+  font-size: x-large;
 }
